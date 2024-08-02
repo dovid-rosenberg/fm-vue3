@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>  </title>
+</head>
+<body>
+<div id="app">
+    <p v-if="!characterList.length">There are no characters</p>
+    <ul>
+        <li v-for="character in characterList">{{character.name}}</li>
+    </ul>
+    <span v-for="(character, index) in characterList">
+        {{ character.name}}{{index === characterList.length - 1 ? '' : ', '}}
+    </span>
+</div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+    Vue.createApp({
+        data:() => ({
+            characterList: [
+                {name: 'Aang'},
+                {name: 'Zuko'},
+                {name: 'Pilla'},
+                {name: 'Gop'},
+            ]
+        })
+    }).mount('#app')
+</script>
+</body>
+</html>
